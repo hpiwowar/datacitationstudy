@@ -41,7 +41,7 @@ To execute the R code in this file and embed the results in the text, I start R,
 
 or, from the command line, to generate an html file:
 
-    R -e "library(knitr); knit('stats_knit_.md')"; pandoc --toc -r markdown -w html -H static/header.html stats.md > stats.html
+    R -e "library(knitr); knit('citationpractices_knit_.md')"; pandoc --toc -r markdown -w html -H static/header.html citationpractices.md > citationpractices.html
 
 The stats.html file can be viewed directly in a browser.
 The images are stored in my Public Dropbox folder.
@@ -67,9 +67,6 @@ require(knitcitations)
 #library(devtools)
 
 options(scipen=8)
-
-source("helpers.R")
-source("preprocess_raw_data.R")
 
 end.rcode-->
 

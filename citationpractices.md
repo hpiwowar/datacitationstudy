@@ -7,7 +7,7 @@
  * author of this file: Heather Piwowar, <hpiwowar@gmail.com>
  * license: CC0
  * Acknowledgements: thanks to Yihui Xie for knitr and Carl Boettiger for his clear examples of this literate programming framework. 
- * Generated on <code class="knitr inline">Sat Jul  7 21:24:51 2012</code>
+ * Generated on <code class="knitr inline">Sat Jul  7 21:32:20 2012</code>
 
 To execute the R code in this file and embed the results in the text, I start R, set the working directory, then run the following:
 
@@ -16,7 +16,7 @@ To execute the R code in this file and embed the results in the text, I start R,
 
 or, from the command line, to generate an html file:
 
-    R -e "library(knitr); knit('stats_knit_.md')"; pandoc --toc -r markdown -w html -H static/header.html stats.md > stats.html
+    R -e "library(knitr); knit('citationpractices_knit_.md')"; pandoc --toc -r markdown -w html -H static/header.html citationpractices.md > citationpractices.html
 
 The stats.html file can be viewed directly in a browser.
 The images are stored in my Public Dropbox folder.
@@ -27,9 +27,7 @@ To extract the R code in a separate .R file called stats_knit_.R, run knit with 
 
     R -e "library(knitr); knit('citationpractices_knit_.md', tangle=T)"
 
-<div class="chunk"><div class="rcode"><div class="error"><pre class="knitr">## Error: cannot open the connection
-</pre></div><div class="error"><pre class="knitr">## Error: cannot open the connection
-</pre></div></div></div>
+
 
 
 
