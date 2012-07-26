@@ -94,185 +94,148 @@ biblio = read.bibtex("tracking.bib")
 end.rcode-->
 
 
-# Making data Count: tracking data citations through the scholarly literature and beyond
+# Making data Count: tracking data impact through the scholarly literature and beyond
 
-The References section is a fundamental part of any research paper.  When the references in a paper are indexed, the references contribute to the set of known relationships between scholarship.  Over the past 50 years, the resulting citation indices have become  backbones of scholarly reward and discovery systems.  We now rely on citation indices to such a large extent that if a scholarly contribution does not participate in the citation system it is a bystander to academic reward and discovery.
+Citation tracking is a key component of our scholarly infrastructure.  When a research object is used, referenced, and indexed, it forms a navigable and countable link between the citing article and the cited object.  Over the past 50 years, the resulting indices have become backbones of scholarly reward and discovery systems.
 
-It is crucially important, therefore, that all scholarship of note participates fully in the citation system: a research object needs a well-defined citation representation, it needs to be cited in the references section when appropriate, citations to it need to be indexed, and finally the indexed data needs to be interpreted and used.
+It is crucially important, therefore, that all noteworthy scholarship participates fully in the citation system.  The first step is that all research objects must be citeable.  Then, when appropriate, research objects must be attributed in the References section of a paper, the reference must be indexed, and finally the citation index needs to be interpreted and used.
 
-Research datasets did not historically participate in the citation system as independent objects: datasets were often attributed through proxy articles or or overlooked due to non-indexible attribution in the methods or acknowlegement sections.  There has been growing recognition that reserach data should be treated as a first-class research object.
+Research datasets have not historically participated in the citation system as independent objects: datasets have been attributed by proxy through article that describe data collection, or informally in acknowledgment sections.  In recent years there has been growing recognition that research data should be treated as a first-class research objects.  Much attention has been paid to defining standard data citation formats and education.
 
-For data citations to be useful, data must be citable, must be cited, and then must be indexed.
-
-To date, conversations about data citation have largely ignored the step of indexing data citations.  In this report we focus on this tracking stage: what needs to happen to facilitate the indexing, interpretation, and use of citations to datasets. 
+To date, however, there has been little conversation and even less progress on ensuring that data citations, once referenced, are indexed.  We focus on this tracking stage: what is needed to facilitate the indexing, interpretation, and use of impact metrics for datasets. 
 
 
-## 1. Why data citation tracking
-
-Data attribution tracking has many uses, from the commonly touted goal of rewarding data collecting investigators to less-frequently highlighted infrastructure uses in discovery and filtering.  Below, we explore reasons to track citations to datasets themselves to motivate and inform infrastructure and metrics that will be needed.
+## 1. Why data impact tracking?
 
 ### Encourage data archiving
 
-Almost all investigators report that citation is important to them: it was the the most important condition for sharing data in the survey by <!--rinline citep(biblio["tenopir:2011"]) -->, mentioned by 92% of respondents.  Investigators who believe proper attribution is important have been found more likely to both intend to share data and to self-report actual data sharing in a structural model of motivation <!--rinline citep(biblio["sayogo:2012"]) -->.
+Many editorials and white papers have called for data citations to reward data collecting investigators who make their data available for reuse <!--rinline citep(biblio[c("cech:2003", "sinnott:2005", "anon:2007", "anon:2009", "thorisson:2009", "schofield:2009", "anon:2010", "edmunds:2012")]) -->.
 
-Many editorials and white papers have called for data citations to reward data collecting investigators who make their data available for reuse. <!--rinline citep(biblio[c("cech:2003", "sinnott:2005", "anon:2007", "anon:2009", "thorisson:2009", "schofield:2009", "anon:2010", "edmunds:2012")]) -->
+Evidence suggests policy suggestions are on track: most researchers state that citation is an important incentive for making their data available: anticipating citations was the most important condition for sharing data in a recent study <!--rinline citep(biblio["tenopir:2011"]) -->, mentioned by 92% of respondents.  Within a structural model of motivation, investigators who valued proper attribution were found more likely to share data than those who didn't <!--rinline citep(biblio["sayogo:2012"]) -->.
 
-Journal editorials that introduce a new policies for data archiving often cite evidence that studies with publicly-available datasets receive more citations [see http://datadryad.org/jdap].
+Indeed, when journals announce stronger policies for data archiving, they often make the case in part by highlighting evidence of increased citation rate [see http://datadryad.org/jdap].
 
 
 ### Reward the most useful collection, curation, and dissemination of data
 
-Evidence suggests that a wide base of datasets are reused <!--rinline citep(biblio["piwowar:2012a"]) -->, so many investigators who make their data available are likely to receive an increase in citations.
+A large proportion of investigators who make their data available will receive a citation boost, given that a substantial portion of available datasets are reused <!--rinline citep(biblio["piwowar:2012b"]) -->.
 
-While many datasets are reused, not all datasets are reused the same number of times.  More research is needed to understand what correlates with reuse, but probably metadata and infrastructure play a role:  can a new investigator easily find a dataset, understand it, and integrate it into established systems?
+That said, the largest citation boost will probably correlate with datasets that are reused most often.  More research is needed to understand what factors correlate with high levels of reuse, but metadata and infrastructure likely play a role: can a new investigator easily find a dataset, understand it, and integrate it into established systems?
 
-Citation tracking will aligns incentives: it provides the most reward for the most useful data.  This is likely to encourage investigators and repositories to collect, curate, and disseminate data in ways that are most useful to future investigators.
+Another way to increase the citation boost by a certain date is to make it available earlier.  A recent article reports that this incentive made early dissemination of a recent high-profile dataset more attractive to its authors <!--rinline citep(biblio["edmunds:2012"]) -->.
 
-Data citation also encourages early dissemination.  The earlier a data is published, the sooner it can begin attracting citations. <!--rinline citep(biblio["edmunds:2012"]) --> reports this incentive helped make early dissemination of a recent high-profile dataset attractive to its authors.
+Reward that correlates with successful data reuse will aligning incentives for data creators, curators, and reusers, encouraging the most useful collection, curation, and dissemination.
 
 ### Include all relevant contributors in reward structure
 
-Citing and tracking datasets independently from research papers facilitate rewarding relevant contributors upon data use.  Investigators who contribute to data collection may be different than those who contribute to resulting publications.  For example, n some cases data curators or editors ought to be rewarded within a data citation.  Data repositories also deserve attribution.
+Tracking attribution to datasets as standalone research objects provides a specific path of reward for those who contributed to the dataset.  The existence of this path eliminates several problems with reliance on attribution through a research article byline.
 
-Some of these roles may be included in the text of the reference itself <!--rinline citep(biblio["parsons:2010"]) -->.  Others are recorded in the metadata behind the unique identifier included in the reference <!--rinline citep(biblio["starr:2011"]) -->.  Resolving the identifier to its metadata allows linking in these significant relationships.
+First, it provides a path to reward to all of those who contributed to the data product, including those who are normally overlooked: techs, data curators, data editors, and data repositories.  Individuals and entities can be included in either the data reference itself <!--rinline citep(biblio["parsons:2010"]) --> or through linked metadata <!--rinline citep(biblio["starr:2011"]) -->, assuming these links are maintained in the index.  Tracked contributions are notably important for data archives, because they often need to provide regular evidence of their value to funders 
+<!--rinline citep(biblio["fry:2009"]) --> <!--rinline citep(biblio["piwowar:2011a"]) -->.
 
-It is also very important to data archives to document the value they provide to their funders 
-<!--rinline #citep(biblio["fry:2009"]) --> 
+Second, attribution to datasets allows the byline of a research article to be restricted to those who have made an intellectual contribution to the article and given their final approval over the manuscript <!--rinline citep(biblio["rohlfing:2012"]) -->, because  alternate paths exist to attribute other contributions.
 
-<!--rinline citep(biblio["piwowar:2011"]) -->
-
-Documenting this value is often a condition of funding.
+Third, attribution to datasets appropriately provides double-attribution for those who do double work: investigators who contribute to both a reusable dataset product and an intellectual analysis paper are rewarded for both <!--rinline citep(biblio["whitlock:2011"]) -->.
 
 ### Discover associated analyses, datasets, and researcher communities
 
-Just as journals often citations of articles on their websites to provide context and discovery, data repositories may want to list reuses on the page that provides the data.  Indeed, ICPSR and ORNL DAAC do this now, based on time-consuming manual searches.
+Just as journals often provide links to articles that cite their articles, for context and discovery, data repositories may wish to provide links to known reuses of datasets.  Indeed, ICPSR and ORNL DAAC do this now, based on data collected through time-consuming manual searches.  Automatically indexed data citations make it much simpler to include these links.
 
-Data citations could also facilitate discovery of associated datasets through recommender systems <!--rinline citep(biblio["michener:2011"]) -->.  A paper that cites two datasets is a valuable clue that someone who is interested in the first dataset would also be interested in the second.
+Data citation links could also be used to recommend datasets  <!--rinline citep(biblio["michener:2011"]) -->.  If two datasets are often cited together, it is likely that a website visitor exploring the first dataset may also be interested in the second.
 
 ### Alert investigators of reanalyses
 
-Without citation tracking it is difficult for investigators to receive notifications of reanalyses of a particular dataset.  This is important for  data collection investigators: the team that collected the data is often very interested to learn about and verify future analyses <!--rinline citep(biblio["tenopir:2011"]) --> <!--rinline citep(biblio["whitlock:2011"]) -->.
+Citation tracking makes it possible for investigators to receive notifications of reanalyses of a particular dataset.  The team that collected the data is often very interested to learn about and verify future analyses <!--rinline citep(biblio["tenopir:2011"]) --> <!--rinline citep(biblio["whitlock:2011"]) -->.  Alerts would also be useful to scientists who reuse data: those considering or in the midst of a reanalysis may want to sign up for alerts to learn what others are publishing.
 
-Alerts would also be useful to data using scientists: those considering or in the midst of a reanalysis may want to sign up for alerts to learn of what others are publishing.
-
-Full-text search alerts are poor approximations for citation-based alerts.  Citation-based alerts forthe paper describing data collection are also a poor solution, since data reanalyses can get lost in the citation deluge received by very popular papers.
+Substitutes for alerts based on citations to datasets are problematic.  Alerts based on full-text searches are inaccurate and have poor recall.  Alerts based instead on the paper describing data collection are also a poor solution, since data reanalyses can get lost in the citation deluge received by very popular papers.
 
 ### Filter for frequently used -- or neglected! -- datasets 
 
-Some datasets are used often whereas others are never used <!--rinline citep(biblio["piwowar:2012a"]) -->.  Scientists may want to filter datasets by the frequency of use.  Some scientists may be looking for dataset that has been used frequently: frequent reuse may serve as a quality indicator by signalling a strong reputation and believability <!--rinline citep(biblio["wang:1996"]) --> <!--rinline citep(biblio["pradhan:2005"]) -->.
-
-Meanwhile, a different set of researchers may want to search for datasets that have been used infrequently, as they look for those with untapped research potential.
+Some scientists may want to filter datasets by the frequency of use.  One scientists may be particularly interested in data that has been used frequently: frequent reuse may serve as a quality indicator of reputation and believability <!--rinline citep(biblio["wang:1996"]) --> <!--rinline citep(biblio["pradhan:2005"]) -->.  Another researcher may be interested in data that has been used infrequently, to find a datasets rich with untapped research potential.
 
 ### Identify analyses based on problematic datasets
 
-Sometimes it turns out that a dataset has quality problems.  Whether data is intentionally faked [Carlisle], an innocent mistake, or even just considered misleading due to constantly improving quality standards, the result is the same: analyses built on data sometimes need reconsidered and the literature corrected <!--rinline citep(biblio["miller:2011"]) --> <!--rinline citep(biblio["shafer:2009"]) -->.  Citation tracking is needed so that analyses based on a given dataset be found.
+Occasionally a dataset is found to have quality problems.  Whether data is intentionally faked [Carlisle], found to have errors due to an innocent mistake, or even just considered misleading due to constantly improving quality standards, the result is the same: analyses built on data sometimes sometimes need to be reconsidered.  Citation indexing allows the literature build on these results to be identified and reinterpreted <!--rinline citep(biblio["miller:2011"]) --> <!--rinline citep(biblio["shafer:2009"]) -->.
 
 ### Avoid harmful shoehorning
 
-In an attempt to piggyback on the infrastructure and reward system for publishign research articles, several new and existing publishers have been lanching "data journals."  Some data overlay journals add value to an archived dataset, by providing more thorough metadata than would otherwise be available, or formal peer-review <!--rinline citep(biblio["callaghan:2009"]) -->.  In other instances they merely serve as a proxy citation to a dataset.  Relying on a system that shoehorns data into the existing journal system to facilitate formal attribution is a reasonable stop-gap measure, but not the best long term solution.  
+Several publishers have launched "data journals", piggybacking on the existing article infrastructure and reward system.  Some data overlay journals add value to an archived dataset by providing additional metadata or formal peer-review <!--rinline citep(biblio["callaghan:2009"]) -->.  In other instances, data journals simply serve as a proxy citation to a dataset.
 
-Supporting direct citation to archived datasets avoids compromise solutions that cost time and money.  Instead, data citations should be ready to evolve as scientific publication moves toward  nanopublications <!--rinline citep(biblio["mons:2011"]) -->.
+Shoehorning data into the existing journal system to facilitate formal attribution is a reasonable stop-gap measure, but not the best long term solution.  Supporting direct citation to archived datasets avoids compromise solutions that cost time and money.
 
 ### Trail-blaze for recognition of other research types
 
-Citation of research data is much further along than citation to other types of non-traditional scholarly products, such as software <!--rinline citep(biblio["howison:2011"]) -->.  Tracking data citations will blaze the trail for  recognition of other research types. 
+Progress toward citation of research data is much further along than citation to other types of non-traditional scholarly products, such as research software <!--rinline citep(biblio["howison:2011"]) -->.  Tracking data citations will blaze the trail for recognition of other types of research objects. 
 
 ### Drive policy, funding, and tool requirements based on evidence
 
-Finally, tracking data reuse allows policy makers, funders, and tool builders to know what has facilited reuse and what hasn't.  Real evidence is needed to inform decision about what kind of standards facilitate reuse, how much data curation is necessary, whether embargoes strike an appropriate balance, and whether tool features are being used.  For example, some policy makers were concerned that data availability would lead to duplicated analyses; evidence based on tracking down data reuses suggests this is not the case <!--rinline citep(biblio["bachrach:2004"]) -->.
+Finally, tracking data allows policy makers, funders, and tool builders to know what has facilitated data reuse and what hasn't.  Real evidence is needed to inform decision about what kind of standards facilitate reuse, how much data curation is necessary, whether embargoes strike an appropriate balance, and whether tool features are being used.
 
-Without evidence we are running blind, and surely wasting money, time, and opportunities.
+For example,  policy makers concerned that data availability would lead to duplicated analyses have since received evidence this is not the case <!--rinline citep(biblio["bachrach:2004"]) -->.
 
+Making decisions without evidence surely leads to wasted money, time, and opportunities.
 
 
 ## 2. What to Count
 
-### Dataset impact in the academic literature
+### Dataset citations in the academic literature
 
-The most clear expectation for tracking data citations is to count the number of times that dataset unique identifiers occur in formal reference lists in the published literature.  This is analigous to counting citations to research papers.
+The most obvious  metric for tracking data citations is to count the number of times that dataset unique identifiers occur in formal reference lists in the published literature.  This is analogous to counting citations to research papers.
 
-### Impact elsewhere in academic reserach
+"Dataset-level metrics" are analogous to "article-level metrics" now gaining ground for research papers.  <!--rinline citep(biblio["neylon:2009"]) -->.  Project-level aggregation and grant-level aggregation may also be useful for investigators summarizing their impact to their insitution or funder.
 
-As scholarly discussion moves online and is captured by a wide variety of product types, evidence of impact may occur in a wide variety of fora, beyond the traditional scholarly literature.  For example, dataset metadata may cite other datasets.  Academics may bookmark datasets using general purposes bookmarking tools (i.e. delicious) or general-purpose reference managers (Mendeley and Zotero).  Datasets of interest may be the topic of blogs, tweets, and preprints.  The number of times a dataset has been viewed or downloaded is also interesting.
+### Impact beyond citations
 
-Downloads area already displayed in some data repositories (Dryad, FigShare).  ICPSR, in particular, reveals aggregated statistics about download uses at the dataset level, which can reveal, for example whether students find a particular dataset useful.
+Citations often take years to accrue; citations based on data reuse may take even longer than citations that pay attribution to an idea.  An early indicator of citation count may be found in download statistics.  Several data repositories already display download counts (Dryad, FigShare).  ICPSR, takes this one step further, displaying aggregated breakdown statistics about what sort of authenticated users have downloaded the datasets.  As discussed in <!--rinline citep(biblio["chavan:2009"]) -->, many associated metrics can also be displayed, including number of unique visits and number of loyal visits.
+
+Other indications of dataset impact can be found online.  For example, datasets may cite other datasets in their metadata.  Academics may bookmark datasets using general purposes bookmarking tools (i.e. delicious) or general-purpose reference managers (Mendeley and Zotero).  Datasets may be the topic of preprints, blogs, and tweets.
 
 Several tools are beginning to reveal these statistics and  discussion of datasets in social media (altmetric.com, total-impact).Such measurements are often called alternative metrics, or altmetrics.
 
-<!--rinline citep(biblio["chavan:2009"]) -->
+### Impact beyond academic research
 
-F1000R preprints
+Much data reuse may go on outside academia, reuse by journalists, policy makers, clinicians, industry, and students <!--rinline citep(biblio["wallis:2006"]) -->.
 
-### Impact outside academic research
-
-Reuse by students, journalists, policy makers, clinitians, startup companies, established industry leaders -- all of these uses are valuable and worth noting to fuel reward and discovery.
-
-<!--rinline citep(biblio["wallis:2006"]) -->
-
-Tracking citations in research publications, however, fail to capture these impacts.  As diverse uses move online, and datasets begin to be identified witn unique identifiers, more and more uses can be tracked automatrically.  Evidence of impact will likely be found in syllabi, textbooks, statistical package READMEs, patent applications, data journalism news articles, blogs, and more.
-
-### Context of reuses
-
-Automated determination of citation function [Teufel2006] and its role in new ideas within the paper [teufel2000].
-
-<!--rinline citep(biblio["teufel:2006"]) -->
-<!--rinline citep(biblio["teufel:2000"]) -->
-<!--rinline citep(biblio["shotton:2010"]) -->
+Tracking citations in research publications, however, fail to capture these impacts.  Evidence of impact will likely be found in syllabi, textbooks, statistical package READMEs, patent applications, data journalism news articles, blogs, and more. 
 
 
 ### Reuses of the reuses
 
-Sometimes the best way to look at the value of something is to look at its second-order use:  Did the metaanalysis which included the datset cause a significant change in healthcare practice?  How impactful was the blog post *about* the dataset?
+Another valuable metric is second-order use:  how impactful is the research which uses the dataset?  A citation-based version of second-order impact can be derived from the full citation graph.
 
-A limited version of this type of analysis is directly possible from a citation graph, the same way that PageRank or EigenFactor are based on linked networks.  These approaches ignore the issue of the role of the dataset in acheiving the second-order effect, so they must be used in concert with complementary information.  Nonetheless, this sort of information is key to understanding the true value of a resource. 
+### Context
 
+Reference links offer much richer data than mere counts.  The reference link is made in a context that can be used to weight or characterize the relationship.  CiTO -- the Citation Typing Ontology -- defines relationships between citing and cited document, including "confirms", "extends", "updates", "corrects", and "refutes". <!--rinline citep(biblio["shotton:2010"]) -->.  These relationships usually implicit in the full text of an article.  Widespread use of citation typing will either require large-scale manual annotation or automated classification of citation function <!--rinline citep(biblio["teufel:2006"]) -->.
+
+There are other aspects of reference context that may also be interesting.  Understanding the relative importance of a dataset to a paper may be proportional to the number of citation mentions it includes.  The section of the reference may also be instructive.
 
 ### Impact flavour
 
-We want to do more than just measure numbers.  We want to assess *type*. <!--rinline citep(biblio["priem:2012"]) -->
+Datasets likely make different types of impact.  Some may be great for calibration, others for training, others to test new methods.  A few datasets may be particularly useful for exploring new hypotheses.
+
+This "impact flavour" won't be clear from citation counts alone, but it can likely be derived from a combination of impact indicators and context <!--rinline citep(biblio["priem:2012"]) -->.  Understanding the impact flavour of a dataset allows different datasets to be appreciated and discovered based on their strengths.
 
 ### Impact Story rather than Impact Factor
 
-Several calls have been made for a "repository impact factor".  While it is important for repositories to measure the value they provide, trying to optimise for a high "impact factor" calculated the same way as the journal impact factor is likely to lead to decisions that are not optimised for efficient or effective research.  For example, it would encourage repositories to exclude datasets from niche areas or untested research fronts, in case these datsets drag down its citation impact average. 
+It is possible to imagine using these metrics to calculate a  Repository Impact Factor.  While it is important for repositories to measure the value they provide, optimizing for a high average impact would likely to lead to decisions that are not ideal for efficient or effective research.  For example, maintaining a high average citation count would discourage preserving datasets from small niche domains and untested research fronts. 
 
-A repository's impact story should instead be told as a more complex story of the types of reuse it has faciliated, as described below.  This can be done qualitatively, through visible success stories.  With thoughtful impact tracking, subtle impact patterns can also be captured and described quantitatively.
-
-Chevan has called for a "Data Usage Index"
-
-* Visits
-* Description
-* Unique Visits Loyal Visits
-* Download Events
-* Download Frequency 
-* Download Volume 
-* Download Impact
-* Avg. Download Freq. 
-* Usage Ratio
-
-<!--rinline citep(biblio["chavan:2009"]) -->
-<!--rinline citep(biblio["lozano:2012"]) -->
-<!--rinline citep(biblio["seglen:1997"]) -->
-<!--rinline citep(biblio["todd:2008"]) -->
-
-
-### Aggregation: project-level, grant-level, repository-level and beyond
-
-Metrics have many audiences. 
-
-For many fields and datatypes it seems appropriate to track data on the dataset or data package level.  "Dataset-level metrics" are analogous to "article-level metrics" now gaining ground for research papers.
-
-<!--rinline citep(biblio["neylon:2009"]) -->
-
-The specific level of granularity may differ for diferent fields and datatypes (data file, data package, data row).  If data citations are tracked at the level of granularity they are cited, higher-level analyses can aggregate them.
-
-<!--rinline citep(biblio["van-de-sompel:2009"]) -->
-
-A good rule of thumb might be to track data attribution at the highest level of abstraction with common methods of collection and contributing investigators and institutions.
+Thanks to a wide array of metrics and context, a repository's impact story can instead be told as a more complex story that highlights the types of reuse it has facilitated.  This story could be told qualitatively, through visible success stories that might be discovered through tracking data reuse.  Subtle impact patterns can also be captured and described quantitatively.
 
 
 ## 3. How to get there
 
 ### Standardize
+
+The first task, and the one that has received most attention thus far, is to make data citable.  This involves hosting the data in a permanent location, giving it a unique identifier, deciding on a level of granularity and version for citation, and defining other metadata that may accompany it.
+
+Citeable data is not enough unless there are standard ways to cite the data.  This has two components: citations that are meaningful to humans, and those that can be parsed by machines.
+
+Discussion of data citation styles: Altman, King (2007); Lawrence et al. (2008); Green (2010); Starr and Gastl (2011)
+
+
+Standard data citation formats for humans
+
+The citation fields need to be included in the 
 
 <!--rinline citep(biblio["mooney:2012"]) -->
 <!--rinline citep(biblio["mooney:2011"]) -->
@@ -303,18 +266,14 @@ We examined actual attribution practice by researchers.  Researchers are clearly
 <img src="http://dl.dropbox.com/u/5485507/datacitation/datacitationstudy/figure/CitationPatterns.png" height=200/>
 
 
-granularity
-versioning
-table that shows the different combinations of how data is cited
 
 consistency within Genbank conventions vs chaos elsewhere
-some try to give attibuion by including author name, as an example
+some try to give attribution by including author name, as an example
 
-Discussion of data citation styles: Altman, King (2007); Lawrence et al. (2008); Green (2010); Starr and Gastl (2011)
 
 <!--rinline citep(biblio["seeber:2008"]) -->
 
-### Fix problematic policies
+### Fix problematic journal policies
 
 * Limit on number of references
 
@@ -337,10 +296,10 @@ Problems differentiating data sharing from data reuse
 
 Linking database submissions to primary citations with PubMed Central: <!--rinline citep(biblio["piwowar:2008"]) -->
 
-Identifying data sharing in biomedical literature: <!--rinline citep(biblio["piwowar:2008"]) -->
+Identifying data sharing in biomedical literature: <!--rinline citep(biblio["piwowar:2008a"]) -->
 
 
-### Open, machine-readable reference lists
+### Open up machine-readable reference lists
 
 not nc
 
@@ -348,7 +307,7 @@ not nc
 <!--rinline citep(biblio["shotton:2009"]) -->
 https://researchremix.wordpress.com/2012/04/19/data-citation-text-mining/
 
-### Build lots of tools
+### Build tools
 
 We are making promises to data creators about attribution and reward that we can’t keep.  ”Make your data citeable!” is the cry.  Ok.  So citeable is step one.  Cited is step two.  But for the citation to be useful, it has to be indexed so that citation metrics can be tracked and admired and used.  Who is indexing data citations right now?  As far as I can tell: absolutely no one.
 
@@ -367,7 +326,7 @@ The two major bibliometric resources, Web of Science and Scopus, do not retain d
 Funding
 
 <!--rinline citep(biblio["larsen:2010"]) -->
-Tracking dataset citations using common citation tracking tools doesnât work <!--rinline citep(biblio["piwowar:2010"]) -->
+Tracking dataset citations using common citation tracking tools doesn't work <!--rinline citep(biblio["piwowar:2010"]) -->
 Thomson Reuters announces subscription-based data citation tracking tool <!--rinline citep(biblio["piwowar:2012"]) -->
 
 Tools to ping
@@ -380,19 +339,34 @@ Tools that support data citation in manuscripts:
 <!--rinline citep(biblio["opportunities-for-data-exchange:2012"]) -->
 
 
-### Do the research
+### Do research
+
+Much research is needed.
 
 
+How should citation data contribute to metrics for research evaluation?  Metrics need to be more reliable, more transparent, and more flexible metrics of scientific performance.  As Julia Lane discusses <!--rinline citep(biblio["lane:2010"]) -->, we need to focus on what the data mean and how they can best be interpreted, as well as more basic research into how measurement can change behaviour, and how changes to incentives alter the way research is performed.  She suggests this will require participation from computer scientists, natural scientists, social scientists, economists, and funders.
+
+What can 
+
+How best to fund this?
+
+https://twitter.com/rdmpage/status/225337983690211330
 
 
+1. Research on whether these policies are effective.  data archiving etc
+2. on how to fund, run these programs
+3. 
 
-Correlations between metadata and reuse
 
 ### Invite (and act on!) evidence of impact
 
+Finally, evidence of impact
 
+NIH RFI
+NSF biosketch
+tenure committees
 
-
+science of science policy
 
 
 ## 4. Conclusion
@@ -402,17 +376,18 @@ A future about *what kind* of contribution a dataset makes, not just a number.
 Emerging data citation best practices are not yet supported by existing attribution tracking tools.  Agreement on policy and technical infrastructure must go hand in hand in order for benefits of reuse to be realized.
 Data is the lifeblood of science, let’s give it the respect it deserves.
 
-
-<!--begin.rcode citeEveryone, echo=TRUE, eval=TRUE
-  names(biblio)
-
-#citep(biblio[names(biblio)])
-end.rcode-->
-
-## References
+## 5. References
 
 <!--begin.rcode bib, results='asis', echo=FALSE, cache=FALSE, eval=TRUE
 bibliography(sort=TRUE)
+end.rcode-->
+
+## X. misc notes
+
+All the biblio keys, cited and not:
+<!--begin.rcode citeEveryone, echo=TRUE, eval=TRUE
+  names(biblio)
+  #citep(biblio[names(biblio)])
 end.rcode-->
 
 
