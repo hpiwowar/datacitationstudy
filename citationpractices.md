@@ -9,7 +9,7 @@
  * author of this file: Heather Piwowar, <hpiwowar@gmail.com>
  * license: CC0
  * Acknowledgements: thanks to Yihui Xie for knitr and Carl Boettiger for his clear examples of this literate programming framework. 
- * Generated on <code class="knitr inline">Thu Jul 26 10:57:40 2012</code>
+ * Generated on <code class="knitr inline">Fri Jul 27 14:34:32 2012</code>
 
 <!---
 
@@ -176,26 +176,27 @@ Thanks to a wide array of metrics and context, a repository's impact story can i
 
 ### Standardize
 
-The first task, and the one that has received most attention thus far, is to make data citable.  This involves hosting the data in a permanent location, giving it a unique identifier, deciding on a level of granularity and version for citation, and defining other metadata that may accompany it.
+The first task in standars for data citation tracking, and the one that has received most attention thus far, is to make data citable.  This primarily involves hosting the data in a permanent location, deciding how to handle granularity and versions, assigning one or more unique identifiers, and revealing related metadata like title and author names.  Several data archives have led the way in making their data citeable, including DataVerse (Altman & King, 2007), Pagaea, ICPSR, ORNL DAAC (Cook, 2008), International Polar Year, Dryad, and FigShare.  WebCite is a complementary solution for data on websites.
 
-Citeable data is not enough unless there are standard ways to cite the data.  This has two components: citations that are meaningful to humans, and those that can be parsed by machines.
+DataCite has led the way to a standard set of minimum metadata for a citeable dataset, and a standard represetnation.  DataCite also provides a citation metadata repository so that metadata can be retrieved from a citation identifier alone.  As CrossRef has shown, keepign metadata in structured format is very useful.
 
-Discussion of data citation styles: Altman, King (2007); Lawrence et al. (2008); Green (2010); Starr and Gastl (2011)
+Once data is citeable, ideally standards would emerge for how to cite it.  A citation standard has several components:
 
+- which data elements are included in a citation reference
+- the citation formatting of the data elements
+- the location of the reference
 
-Standard data citation formats for humans
+Which data elements are included in a citation and how those elements are formatted has traditionally been the domain of journals that publish a paper with a references list.  Journals usually choose one of many established style guides, sometimes with custom modificatons.
 
-The citation fields need to be included in the 
+The location of a citation list has also been specified by journal style guildelines.  It is common to include them in a "Referendes" section, but in some domains some formal or informal citation also occur in footnotes, acknowledgement sections, supplementary material, or in-text hyperlinks.
 
-(Mooney & Newton, 2012)
-(Mooney, 2011)
-(Altman & King, 2007)
-(Cook, 2008)
-(Sieber & Trumbo, 1995)
-(Cronin, 1995)
+As we discuss in the next section, several style guides have begun to include specifications for datasets, and a few journals include related information in their instruction to author guidelines.
 
+It is worth noting that, despite many calls and several competing standards (http://www.iso.org/iso/catalogue_detail.htm?csnumber=43320, http://dublincore.org/groups/citation/citstds.html, http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/citations/v3/toc.html, http://www.niso.org/publications/rp/RP-2005-03.pdf), scholarly publishing has not adopted a common format for citation of traditional reserach objects.  Although it would be helpful for indexing, it is unlikely that a single unified standard will emerge for how or where to cite a dataset.
 
-### Educate, encourage, expect, and enforce
+### Educate, encourage, expect, and enforce data citation
+
+As our existing infrastructure demonstrates, citation indexing is possible even without adhering to a single standard.  Although standards are unlikely, many stakeholders can help educate, encourage, expect, and enforce citation best practices that permit indexing.
 
 The primary focus in most fields is data that supports the findings in peer-reviewed journal publications.  We investigated a wide variety of sources for data citation policies that authors must comply with, from funders, repositories, and journals.  We found limited and variable guidance.
 
@@ -203,120 +204,89 @@ Table:  regression information for which journals are most likely to have polici
 Graph:  boxplot of journal impact factors, for “no policy, requests, requires” ?
 Paragraph of results like in Nic’s ASIS&T poster abstract:
 
-Best practices are also in the self-interest of the journal..... to the extent that best practices lead to reuse and attribution and citations, everyone wins.
-
 Table:  Data citation policies of Funders, Journal, Repositories.  Subdivide with line in between funders, journals, and repositories.  Columns:
 
 * No policy for data citation (lists all funders with no policy, in alphabetical order)
 * Mentions data citation (lists all funders that mention data citation, with exerpt in parantheses)
 http://precedings.nature.com/documents/5452/version/1
 
-We examined actual attribution practice by researchers.  Researchers are clearly mixing and matching different expectations in a very context sensitive manner.
+<img src="http://dl.dropbox.com/u/5485507/datacitation/datacitationstudy/figure/CitationPatterns.png" height=150/>
+*Figure 1: Citation patterns*
 
-<img src="http://dl.dropbox.com/u/5485507/datacitation/datacitationstudy/figure/CitationPatterns.png" height=200/>
+(We examined actual attribution practice by researchers.  Researchers are clearly mixing and matching different expectations in a  context sensitive manner, consistency within Genbank conventions vs chaos elsewhere, some try to give attribution by including author name, as an example
 
-
-
-consistency within Genbank conventions vs chaos elsewhere
-some try to give attribution by including author name, as an example
-
+Discussion of data citation styles: Altman, King (2007); Lawrence et al. (2008); Green (2010); Starr and Gastl (2011)
 
 (Seeber, 2008)
-
-### Fix problematic journal policies
-
-* Limit on number of references
-
-* Putting references in supplementary methods
-[Citations in supplementary information are invisible]
-
-* Only including peer-reviewed resources in references
-
-* Not including data sharing paper as a citation.  This would be the most natural way to link a paper that describes data collection and dataset, yet none of Dryad's journals do it.  There is a concern this would be counted as citation grabbing.  Unfortunately, without it, we are left with trying to use metadata that is often incomplete to find these relationships.
+(Mooney & Newton, 2012)
+(Mooney, 2011)
+(Sieber & Trumbo, 1995)
+(Cronin, 1995)
 
 
-data journalism
+### Fix problematic citation policies
 
+Several journal policies need to be modified to fully support data citation tracking.
 
-(Seeber, 2008)
+Some journals impose limits on number of references that can be cited.  For example, Nature allows a maximum of XXX references for Letters.  This becomes a problem when we ask authors to cite all datasets.  For example, XXX % of reanalyses of GEO data use XXX or more datasets.  How can these be included?
 
-Problems differentiating data sharing from data reuse
+Some journals and standards permit (or even encourage) putting references in supplementary methods (http://www.niso.org/apps/group_public/download.php/7964/RP-15-201x%20Suppl_BWG_draft_for_comments.pdf).  Unfortunately, citations in supplmenetary methods sections are invisible (Seeber, 2008).  Exceptions exist: citations in Extended Method sections of Nature articles are indexed by Web of Science.  Unless journals have this set up, they should ensure all references are where they will be indexed.
 
-(N\'{e}v\'{e}ol _et. al._ 2011)
+A few journals discourage the use of non-peer-reviewed resources may in the references (https://www.ipcc-wg1.unibe.ch/guidancepaper/AR5GuidanceNotes_Literature.pdf).  Guideances need to be clear that datasets should be cited: if they are used, they should be cited.
 
-Linking database submissions to primary citations with PubMed Central: (Piwowar & Chapman, 2008)
+Many journals discourage citing a dataset within the paper that describes the collection of the dataset, suggesting instead that the identifier is simply mentioned in the full text.  This practice fails to take advantage of the citation linking and tracking systems.  Admittedly it can be difficult to distinguish primary and secondary reuse when both use the same attribution mechansims (N\'{e}v\'{e}ol _et. al._ 2011; Piwowar & Chapman, 2008; Piwowar & Chapman, 2008), but it is possible.
 
-Identifying data sharing in biomedical literature: (Piwowar & Chapman, 2008)
+Finally, editorials and news articles within journals need to link to articles and data directly (newspaper articles do also, and press releases).  This will become increasingly important as data journalism becomes more common.
 
 
 ### Open up machine-readable reference lists
 
-not nc
+Reference lists need to be open.  They are naturally open for libre OA articles, some barrier-based publishers are also making them open (Shotton, 2012).  Avoiding restrictions like Non-Commercial terms will be important to facilitate maximum reuse.
 
-(Shotton, 2012)
-(Shotton _et. al._ 2009)
-https://researchremix.wordpress.com/2012/04/19/data-citation-text-mining/
+Ideally the reference lists would be machine readable.  Semantic markup would help to put into context (Shotton, 2010), though will be tricky to get authors to do the markup.
+
+### Share more data
+
+Journals and repositories could make usage and clickstream data available, based on standards for data reporting (http://www.jisc.ac.uk/publications/reports/2009/pirusfinalreport.aspx, http://www.cranfieldlibrary.cranfield.ac.uk/pirus2/tiki-index.php).
+
+Exposing this information via an api is probably the best idea, but other mechansisms have been explored in the past and may have a role in the future (ie trackbacks (Pepler, 2008)).
 
 ### Build tools
 
-We are making promises to data creators about attribution and reward that we can’t keep.  ”Make your data citeable!” is the cry.  Ok.  So citeable is step one.  Cited is step two.  But for the citation to be useful, it has to be indexed so that citation metrics can be tracked and admired and used.  Who is indexing data citations right now?  As far as I can tell: absolutely no one.
+The two major bibliometric resources, Web of Science and Scopus, do not retain dois or urls in the references they collect (Piwowar, 2010).  As a result, dataset identifiers are lost and citations to data cannot be tracked.  This is illustrated in Figures 2 and 3.
 
-(Bakkalbasi _et. al._ 2006)
+<img src="http://dl.dropbox.com/u/5485507/datacitation/datacitationstudy/figure/ORNLDAACinPaper.png" height=150/>
+*Figure 2: citation of a dataset in a reference list*
 
-Some tracking tools, like Google Scholar, have decided not to track datasets.
+<img src="http://dl.dropbox.com/u/5485507/datacitation/datacitationstudy/figure/ORNLDAACinScopus.png" height=100/>
+*Figure 3: unique identifiers are not include in the Scopus record for this reference entry*
+
+The third major citation tracking tool, Google Scholar, has explicitly decided not to track datasets.
 
 Others are are only willing to track peer-reviewed resources (http://f1000research.com/2012/07/09/we-are-almost-there/).
 
-The two major bibliometric resources, Web of Science and Scopus, do not retain dois or urls in the references they collect.  As a result, dataset identifiers are lost and citations to data cannot be tracked.
+New tools are coming out that track data citations.  The most high-profile is the Data Citation Index by Thomson Reuters.  Also of note, tracking citations and also other metrics of impact, are emergent tools altmetric.com and total-impact.
 
-<img src="http://dl.dropbox.com/u/5485507/datacitation/datacitationstudy/figure/ORNLDAACinPaper.png" height=200/>
+Tools for other parts of the data citation lifecycle are also important, including tools to visualize data citations and those to support data citation in manuscripts
+(character(0)).
 
-<img src="http://dl.dropbox.com/u/5485507/datacitation/datacitationstudy/figure/ORNLDAACinScopus.png" height=200/>
+### Do agile research with decision makers
 
-Funding
+More research is needed into how data citations should be implemented, supported, and used.
 
-(Larsen & Ins, 2010)
-Tracking dataset citations using common citation tracking tools doesn't work (Piwowar, 2010)
-Thomson Reuters announces subscription-based data citation tracking tool (Piwowar, 2012)
+How should citation data contribute to metrics for research evaluation?  As Julia Lane discusses (Lane, 2010), we need to learn what metrics of scientific performance mean and how they can best be interpreted.  We need more basic research into how measurement can change behaviour, and how changes to incentives alter the way research is performed.
 
-Tools to ping
+As discussed in the sections above, data impact metrics have many applictions for discovery just waiting to be explored.
 
-(Pepler, 2008)
+This call for more research, however, comes with a caveat.  It can be tempting to research metrics for metric's sakes.  Partnerships between stakeholders with problems that need bibliometrics solutions and cutting-edge bibliomatricians would perhaps focus bibliometrics research on priority problems and help decision-makers buy-in to the solutions.
 
+### Ask for (and act on!) evidence of data impact
 
-Tools that support data citation in manuscripts:
+Finally, we have to ask for evidence of the impact of data.  Proactively expanding all requests for impact to include non-traditional products like data and software will remind investigators to include them, signal their value, and inspire tools to support collecting the evidence.
 
-(character(0))
+Natural times for this are in grant-submission biosketches, annual grant review forms, institutional annual and tenure reviews, and job application forms.
 
-
-### Do research
-
-Much research is needed.
-
-
-How should citation data contribute to metrics for research evaluation?  Metrics need to be more reliable, more transparent, and more flexible metrics of scientific performance.  As Julia Lane discusses (Lane, 2010), we need to focus on what the data mean and how they can best be interpreted, as well as more basic research into how measurement can change behaviour, and how changes to incentives alter the way research is performed.  She suggests this will require participation from computer scientists, natural scientists, social scientists, economists, and funders.
-
-What can 
-
-How best to fund this?
-
-https://twitter.com/rdmpage/status/225337983690211330
-
-
-1. Research on whether these policies are effective.  data archiving etc
-2. on how to fund, run these programs
-3. 
-
-
-### Invite (and act on!) evidence of impact
-
-Finally, evidence of impact
-
-NIH RFI
-NSF biosketch
-tenure committees
-
-science of science policy
+The responsibility for this progression rests with all of us, not just funders and department chairs.  Speaking out in the context of Request for Informations is a clear path, but proactively writing to committees to will help raise awareness of this issue.
 
 
 ## 4. Conclusion
@@ -324,7 +294,10 @@ science of science policy
 A future where data attribution counts.
 A future about *what kind* of contribution a dataset makes, not just a number.
 Emerging data citation best practices are not yet supported by existing attribution tracking tools.  Agreement on policy and technical infrastructure must go hand in hand in order for benefits of reuse to be realized.
+In the interest of all stakeholders. To the extent that best practices lead to reuse and attribution and citations, everyone wins.
 Data is the lifeblood of science, let’s give it the respect it deserves.
+
+(Do I want to make an image, like this but with a different emphasis? http://www.ands.org.au/guides/data_citation_poster.pdf)
 
 ## 5. References
 
@@ -352,11 +325,6 @@ ISSN 1546-1718, <a href="http://dx.doi.org/10.1038/ng1110-915">http://dx.doi.org
 &ldquo;Data sharing and duplication: is there a problem?&rdquo;
 <EM>Archives of pediatrics \&amp; adolescent medicine</EM>, <B>158</B>(9), pp. 931&ndash;2.
 ISSN 1072-4710, <a href="http://archpedi.jamanetwork.com/article.aspx?articleid=485802">http://archpedi.jamanetwork.com/article.aspx?articleid=485802</a>.
-
-<p>Bakkalbasi N, Bauer K, Glover J and Wang L (2006).
-&ldquo;Three options for citation tracking: Google Scholar, Scopus and Web of Science.&rdquo;
-<EM>Biomedical digital libraries</EM>, <B>3</B>, pp. 7.
-ISSN 1742-5581, <a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=1533854\&amp;tool=pmcentrez\&amp;rendertype=abstract">http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=1533854\&amp;tool=pmcentrez\&amp;rendertype=abstract</a>.
 
 <p>Callaghan S, Hewer F, Pepler S and Hardaker P (2009).
 &ldquo;Overlay journals and data publishing in the meteorological sciences.&rdquo;
@@ -399,11 +367,6 @@ ISSN 1756-0500, <a href="http://www.ncbi.nlm.nih.gov/pubmed/22571506">http://www
 &ldquo;Let's make science metrics more scientific.&rdquo;
 <EM>Nature</EM>.
 <a href="http://www.nature.com/nature/journal/v464/n7288/abs/464488a.html">http://www.nature.com/nature/journal/v464/n7288/abs/464488a.html</a>.
-
-<p>Larsen PO and Ins Mv (2010).
-&ldquo;The rate of growth in scientific publication and the decline in coverage provided by Science Citation Index.&rdquo;
-<EM>Scientometrics</EM>, <B>84</B>(3), pp. 575&ndash;603.
-ISSN 0138-9130, <a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=2909426\&amp;tool=pmcentrez\&amp;rendertype=abstract">http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=2909426\&amp;tool=pmcentrez\&amp;rendertype=abstract</a>.
 
 <p>Michener WK, Porter J, Servilla M and Vanderbilt K (2011).
 &ldquo;Long term ecological research and information management.&rdquo;
@@ -465,10 +428,6 @@ In <EM>AMIA Symposium</EM>, pp. 596&ndash;600.
 ISSN 1476-4687, <a href="http://dx.doi.org/10.1038/473285a">http://dx.doi.org/10.1038/473285a</a>, <a href="http://dx.doi.org/10.1038/473285a">http://dx.doi.org/10.1038/473285a</a>.
 
 <p>Piwowar H (2012).
-&ldquo;Thomson Reuters announces subscription-based data citation tracking tool.&rdquo;
-<a href="http://researchremix.wordpress.com/2012/06/28/data-citation-index/">http://researchremix.wordpress.com/2012/06/28/data-citation-index/</a>.
-
-<p>Piwowar H (2012).
 &ldquo;Probability of observed third-party data reuse.&rdquo;
 <EM>FigShare</EM>.
 <a href="http://dx.doi.org/10.6084/m9.figshare.92959">http://dx.doi.org/10.6084/m9.figshare.92959</a>, <a href="http://figshare.com/articles/Probability\_of\_observed\_third-party\_data\_reuse/92959">http://figshare.com/articles/Probability\_of\_observed\_third-party\_data\_reuse/92959</a>.
@@ -506,11 +465,6 @@ In <EM>2012 45th Hawaii International Conference on System Sciences</EM>, pp. 26
 &ldquo;Tattered threads.&rdquo;
 <EM>Anesthesia and analgesia</EM>, <B>108</B>(5), pp. 1361&ndash;3.
 ISSN 1526-7598, <a href="http://dx.doi.org/10.1213/ane.0b013e3181a16846">http://dx.doi.org/10.1213/ane.0b013e3181a16846</a>, <a href="http://www.ncbi.nlm.nih.gov/pubmed/19372305">http://www.ncbi.nlm.nih.gov/pubmed/19372305</a>.
-
-<p>Shotton D, Portwin K, Klyne G and Miles A (2009).
-&ldquo;Adventures in semantic publishing: exemplar semantic enhancements of a research article.&rdquo;
-<EM>PLoS computational biology</EM>, <B>5</B>(4), pp. e1000361.
-ISSN 1553-7358, <a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=2663789\&amp;tool=pmcentrez\&amp;rendertype=abstract">http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=2663789\&amp;tool=pmcentrez\&amp;rendertype=abstract</a>.
 
 <p>Shotton D (2010).
 &ldquo;CiTO, the Citation Typing Ontology.&rdquo;
